@@ -1,0 +1,592 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+                            <!-- fonts -->
+             <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+            <link href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&family=Satisfy&display=swap" rel="stylesheet">
+               <!-- Icons -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+          <!-- <link rel="stylesheet" href="./main.css"> -->
+          <!-- swiper -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+         
+          <link rel="stylesheet" href="{% static 'css/main.css' %} ">
+          <!--  <link rel="stylesheet" href="{%  static 'js/main.js'  %} "> -->
+    <title>Responsive Website</title>
+
+</head>
+<body>
+    
+  <!-- navbar -->
+    <!-- <nav class="navbar">
+        <h1 class="logo"><a href="#">   Ahtisham   </a></h1>
+        <!-- <h1 class="logo">Suffah</h1> 
+        <div class="menu">
+            <ul  onclick=" hideSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>  </ul>
+                                        <a href="#" > Jobs</a>
+                                        <a href="#" > Companies</a>
+                                        <a href="#" > About Us</a>
+                                        <a href="#" > Contact Us</a>
+                                        <a href="#" > Sign In</a>
+      </div>
+                   <div class="showSidebar" onclick="showSidebar()"> 
+                        <!-- <i class="fa-solid fa-bars"></i> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28"> 
+                       <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> 
+                  </div>
+                        <div class="menu-taggle">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                     </div>
+    </nav>
+
+
+        <nav class="navbar">
+            <div class="container">
+            <div> <h1 class="logo">ALLAH</h1>  </div>
+            <ul >
+                
+                <li> <a href="{% url 'job_posting' %}" target="_blank" > Job Posting </a> </li>
+                <li>  Jobs
+                    <ul class="drop-down">
+                        <li> <a href="#" target="_blank" > All Jobs </a> </li>
+                        <li> <a href="#" target="_blank" > Jobs by City </a> </li>
+                        <li> <a href="#" target="_blank" > Jobs by Country </a> </li>
+                        <li> <a href="#" target="_blank" > Jobs by Industry </a> </li>
+                    </ul>
+                </li>
+                <li> <a href="{% url 'contact_us' %}" target="_blank" > Contact Us </a> </li>
+                <li> <a href="{% url 'aboutus' %}" target="_blank" > About Us  </a> </li>
+                <li>  Register
+                    <ul class="drop-down">
+                        <li> <a href="{% url 'employer_registration' %}" target="_blank" > Employer </a> </li>
+                        <li> <a href="{% url 'candidate_registration' %}" target="_blank" > Candidate </a> </li>
+                    </ul>
+                </li>
+                 <li>  Login 
+                    <ul class="drop-down">
+                        <li> <a href="{% url 'employer_login' %}" target="_blank" > Employer </a> </li>
+                        <li> <a href="{% url 'candidate_login' %}" target="_blank" > Candidate </a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>  -->
+             <!-- header -->
+             <header id="header">
+                <h2 class="header-title">
+                    FIND YOUR <br> <span> PERFECT JOB</span><br> EASILY
+                </h2>
+             </header>
+             <!-- Search -->
+             <div class="search-wrapper">
+                <div class="search-box">
+                    <!-- <div class="search-card"> -->
+                        <input type="text" class="search-input" placeholder="Find your dream job">
+                        <button class="search-button">Search</button>
+                    <!-- </div> -->
+                </div>
+             </div>
+             <!-- Filter box -->
+             <div class="filter-box">
+                 <div class="filter-dropdown">
+                            <select name="job-level1"  id="job-level"  class="filter-select">
+                                <option value="">All</option>
+                                <option value="">Job Level</option>
+                                <option value="">Entry</option>
+                                <option value="">Mid-Senior</option>
+                                <option value="">Director</option>
+                            </select>
+                            <select name="job-function" id="job-function" class="filter-select">
+                                  <option value="">All</option>
+                                <option value="">Job Function</option>
+                                <option value="">IT</option>
+                                <option value="">Management</option>
+                                <option value="">Education</option>
+                            </select>
+                            <select name="employment" id="employment" class="filter-select">
+                                  <option value="">All</option>
+                                <option value="">EmployMent Type</option>
+                                <option value="">InternShip</option>
+                                <option value="">Part Time</option>
+                                <option value="">Full Time</option>
+                            </select>
+                            <select name="location" id="location" class="filter-select">
+                                  <option value="">All</option>
+                                <option value="">Location</option>
+                                <option value="">Remote</option>
+                                <option value="">Pakistan</option>
+                                <option value="">Other</option>
+                            </select>
+                            <select name="education" id="education" class="filter-select">
+                                  <option value="">All</option>
+                                <option value="">Education</option>
+                                <option value="">UnderGraduate</option>
+                                <option value="">Graduate</option>
+                                <option value="">Master's</option>
+                            </select>
+                 </div>
+                 <div class="filter-chosen">
+                        <!-- <div class="chosen-card"> -->
+                            <!-- Remote <i class="fas fa-times-circle"></i> -->
+                        <!-- </div> -->
+                        <!-- <div class="chosen-card"> -->
+                            <!-- Full time <i class="fas fa-times-circle"></i> -->
+                        <!-- </div> -->
+                        <!-- <div class="chosen-card"> -->
+                            <!-- Financial Tech <i class="fas fa-times-circle"></i> -->
+                        <!-- </div> -->
+                        <!-- <div class="chosen-card"> -->
+                            <!-- Entry Level  <i class="fas fa-times-circle"></i> -->
+                        <!-- </div> -->
+                 </div>
+             </div>
+             <!-- job listing -->
+             <section class="job-list ani" id="jobs">
+                <div class="job-card">
+                    <div class="job-name">
+                        <img class="job-profile" src="https://images.unsplash.com/photo-1563694983011-6f4d90358083?q=30&w=87&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <div class="job-detail">
+                            <h4>Tesla</h4>
+                            <h3>Mechanical</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</p>
+                        </div>
+                    </div>
+                    <div class="job-label">
+                        <a href="#" class="label-a">HTML</a>
+                        <a href="#" class="label-b">JAVASCRIPT</a>
+                        <a href="#" class="label-c">CSS</a>
+                    </div>
+                    <div class="job-posted">
+                        Posted 2 mins ago
+                    </div>
+                </div>
+                <br>
+                <!-- Second -->
+            <div class="job-card">
+                <div class="job-name">
+                    <img class="job-profile" src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9nb3xlbnwwfHwwfHx8MA%3D%3D" alt="">
+                    <div class="job-detail">
+                        <h4>Tesla</h4>
+                        <h3>Mechanical</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</p>
+                    </div>
+                </div>
+                <div class="job-label">
+                    <a href="#" class="label-a">HTML</a>
+                    <a href="#" class="label-b">JAVASCRIPT</a>
+                    <a href="#" class="label-c">CSS</a>
+                </div>
+                <div class="job-posted">
+                    Posted 2 mins ago
+                </div>
+            </div>
+                <br>
+                <!-- Third-->
+                <div class="job-card">
+                        <div class="job-name">
+                            <img class="job-profile" src="https://images.unsplash.com/photo-1601158935942-52255782d322?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                            <div class="job-detail">
+                                <h4>Tesla</h4>
+                                <h3>Mechanical</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</p>
+                            </div>
+                        </div>
+                        <div class="job-label">
+                            <a href="#" class="label-a">HTML</a>
+                            <a href="#" class="label-b">JAVASCRIPT</a>
+                            <a href="#" class="label-c">CSS</a>
+                        </div>
+                        <div class="job-posted">
+                            Posted 2 mins ago
+                        </div>
+             </div>
+             <br>
+               <!-- Third-->
+            <div class="job-card">
+                <div class="job-name">
+                    <img class="job-profile" src="https://images.unsplash.com/photo-1612810806563-4cb8265db55f?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <div class="job-detail">
+                        <h4>Tesla</h4>
+                        <h3>Mechanical</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</p>
+                    </div>
+                </div>
+                <div class="job-label">
+                    <a href="#" class="label-a">HTML</a>
+                    <a href="#" class="label-b">JAVASCRIPT</a>
+                    <a href="#" class="label-c">CSS</a>
+                </div>
+                <div class="job-posted">
+                    Posted 2 mins ago
+                </div>
+          </div>
+          <button class="job-more">More Lists</button>
+             </section>
+         <!-- join -->
+         <section class="join">
+            <div class="join-detail">
+                <h1 class="section-title">LETS START YOUR NEW JOB WITH US</h1>
+                <p>A job title is a name or designation given to a job or position. 
+                    The title may describe the occupation, position, or job function of the person holding the job 
+                    or it may be a marketing term used to describe the product or service.
+                </p>
+            </div>
+            <button class="join-button">Join Now</button>
+         </section>
+  <!-- featured company -->
+  <section class="featured ani" id="companies">
+       <h1 class="section-title">Featured Companies</h1>
+       <p>The title may describe the occupation, position 
+          or job function of the person holding the job. </p>
+          <div class="featured-wrapper">
+            <!-- 01 -->
+                 <div class="featured-card">
+                     <img class="featured-image" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=1740&t=st=1706350341~exp=1706350941~hmac=8f0bf45fc32467b4225d66ab06bd4f6e1286b8addcdf9a97f9061ea02f2c0386" alt="">
+                     <h3>Lorem Ipsum</h3>
+                     <button class="featured-button">View 2 jobs</button>
+                 </div>
+                 <!-- 02 -->
+                 <div class="featured-card">
+                        <img class="featured-image" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=1740&t=st=1706350341~exp=1706350941~hmac=8f0bf45fc32467b4225d66ab06bd4f6e1286b8addcdf9a97f9061ea02f2c0386" alt="">
+                         <h3>Lorem Ipsum</h3>
+                        <button class="featured-button">View 2 jobs</button>
+                          <!-- 03 -->
+                </div>
+                <div class="featured-card">
+                    <img class="featured-image" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=1740&t=st=1706350341~exp=1706350941~hmac=8f0bf45fc32467b4225d66ab06bd4f6e1286b8addcdf9a97f9061ea02f2c0386" alt="">
+                    <h3>Lorem Ipsum</h3>
+                    <button class="featured-button">View 2 jobs</button>
+                          <!-- 04 -->
+                </div>
+                <div class="featured-card">
+                    <img class="featured-image" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=1740&t=st=1706350341~exp=1706350941~hmac=8f0bf45fc32467b4225d66ab06bd4f6e1286b8addcdf9a97f9061ea02f2c0386" alt="">
+                    <h3>Lorem Ipsum</h3>
+                    <button class="featured-button">View 2 jobs</button>
+                          <!-- 05 -->
+                </div>
+                <div class="featured-card">
+                    <img class="featured-image" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=1740&t=st=1706350341~exp=1706350941~hmac=8f0bf45fc32467b4225d66ab06bd4f6e1286b8addcdf9a97f9061ea02f2c0386" alt="">
+                    <h3>Lorem Ipsum</h3>
+                    <button class="featured-button">View 2 jobs</button>
+                          <!-- 06 -->
+                </div>
+                <div class="featured-card">
+                    <img class="featured-image" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=1740&t=st=1706350341~exp=1706350941~hmac=8f0bf45fc32467b4225d66ab06bd4f6e1286b8addcdf9a97f9061ea02f2c0386" alt="">
+                    <h3>Lorem Ipsum</h3>
+                    <button class="featured-button">View 2 jobs</button>
+                </div>
+         </div>
+       
+  </section>
+  <!-- <div class="curve">curve</div> -->
+
+<!-- swiper  -->
+ 
+<div class="testimonial " >
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="testimonialBox">
+                    <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 02 -->
+            <div class="swiper-slide">
+                <div class="testimonialBox">
+                      <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+               <!-- 03 -->
+               <div class="swiper-slide">
+                <div class="testimonialBox">
+                    <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+             <!-- 04 -->
+             <div class="swiper-slide">
+                <div class="testimonialBox">
+                      <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+             <!-- 05 -->
+             <div class="swiper-slide">
+                <div class="testimonialBox">
+                 <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+             <!-- 06-->
+             <div class="swiper-slide">
+                <div class="testimonialBox">
+                  <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+             <!-- 07 -->
+           <div class="swiper-slide">
+                <div class="testimonialBox">
+                 <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+          </div>
+             <!-- 08 -->
+             <div class="swiper-slide">
+                <div class="testimonialBox">
+                  <i class="fas fa-quote-right"></i>
+                    <div class="content">
+                        <p>A job title is a name or designation given to a job or position. <br>
+                            The title may describe the occupation, position, or job function of the person holding the job
+                            or it may be a marketing term used to describe the product or service.</p>
+                            <div class="detail">
+                                <div class="imgBox">
+                                    <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1416" alt="user img">
+                                </div>
+                                <h3>Muhammad Ahtisham Yousaf <br><span>Web Developer</span></h3>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+           <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- blog -->
+<section class="blog ani" id="blog">
+    <h1 class="section-title">Career Advices</h1>
+     <p>Learn more career tips company's recruiter</p>
+     <div class="blog-wrapper">
+        <div class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg" class="blog-image" alt="">
+            <div class="blog-detail">
+                <span>11 april 2024</span>
+                <h3>How to enjoy your work</h3>
+                <p>A job title is a name or designation given to a job or position.</p>
+                <hr class="divider">
+                <a href="#" class="blog-more ">Read</a>
+            </div>
+        </div>
+     </div>
+     <!-- 02 -->
+     <div class="blog-wrapper">
+        <div class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg" class="blog-image" alt="">
+            <div class="blog-detail">
+                <span>11 april 2024</span>
+                <h3>How to enjoy your work</h3>
+                <p>A job title is a name or designation given to a job or position.</p>
+                <hr class="divider">
+                <a href="#" class="blog-more ">Read</a>
+            </div>
+        </div>
+     </div>
+     <!-- 03 -->
+     <div class="blog-wrapper">
+        <div class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg" class="blog-image" alt="">
+            <div class="blog-detail">
+                <span>11 april 2024</span>
+                <h3>How to enjoy your work</h3>
+                <p>A job title is a name or designation given to a job or position.</p>
+                <hr class="divider">
+                <a href="#" class="blog-more ">Read</a>
+            </div>
+        </div>
+     </div>
+     <!-- 03 -->
+     <div class="blog-wrapper">
+        <div class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg" class="blog-image" alt="">
+            <div class="blog-detail">
+                <span>11 april 2024</span>
+                <h3>How to enjoy your work</h3>
+                <p>A job title is a name or designation given to a job or position.</p>
+                <hr class="divider">
+                <a href="#" class="blog-more ">Read</a>
+            </div>
+        </div>
+     </div>
+     <!-- 04 -->
+     <div class="blog-wrapper">
+        <div class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg" class="blog-image" alt="">
+            <div class="blog-detail">
+                <span>11 april 2024</span>
+                <h3>How to enjoy your work</h3>
+                <p>A job title is a name or designation given to a job or position.</p>
+                <hr class="divider">
+                <a href="#" class="blog-more ">Read</a>
+            </div>
+        </div>
+     </div>
+     <!-- 05 -->
+     <div class="blog-wrapper">
+        <div class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg" class="blog-image" alt="">
+            <div class="blog-detail">
+                <span>11 april 2024</span>
+                <h3>How to enjoy your work</h3>
+                <p>A job title is a name or designation given to a job or position.</p>
+                <hr class="divider">
+                <a href="#" class="blog-more ">Read</a>
+            </div>
+        </div>
+     </div>
+</section>
+   <!-- footer -->
+  <!-- {% comment %} <footer>
+    <div class="row">
+        <div class="col">
+             <h4>Quick Links</h4>
+            <ul>
+                <li><a href="">&#8888;About Us</a></li>
+                <li><a href="">&#8888;FAQs</a></li>
+                <li><a href=""> &#8888;Contact Us</a></li>
+                <li><a href="">&#8888;Privacy and Policy</a></li>
+                <li><a href=""> &#8888;Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col">
+            <h4>For Job Seekers</h4>
+            <ul>
+                <li><a href="">&#8888;Home</a></li>
+                <li><a href="">&#8888;Browse Jobs</a></li>
+                <li><a href="">&#8888;Job Alerts</a></li>
+                <li><a href="">&#8888;Register</a></li>
+                <li><a href="">&#8888;Login</a></li>
+            </ul>
+        </div>
+        <div class="col">
+        <h4>For Employers</h4>
+            <ul>
+                <li><a href="#">&#8888;Browse Candidates</a></li>
+                <li><a href="#">&#8888;Employer Dashboard</a></li>
+                <li><a href="#">&#8888;Free Job Posting</a></li>
+                <li><a href="#">&#8888;Register</a></li>
+                <li><a href="#">&#8888;Login</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Browse Jobs</h4>
+                <ul>
+                    <li><a href="#">&#8888;All jobs</a></li>
+                    <li><a href="#">&#8888;Jobs by City</a></li>
+                    <li><a href="#">&#8888;Jobs by Location</a></li>
+                    <li><a href="#">&#8888;Jobs by Industry</a></li>
+                    <li><a href="#">&#8888;Jobs by Functional Area</a></li>
+                </ul>
+            </div>
+        <div class="col">
+            <h4>Follow Us</h4>
+           <!-- <form >
+                <i class="far fas fa-envelope"></i>
+                <input type="email" placeholder="Enter Your Email ">
+                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+           </form>      
+            <div class="social-icons">
+               <a href=""> <i class="fa-brands fa-facebook-f"></i></a> 
+              <a href=""> <i class="fa-brands fab fa-youtube"></i></a>
+              <a href=""> <i class="fa-brands fab fa-twitter"></i></a>
+              <a href=""> <i class="fa-brands fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+   
+ </div>
+</footer> {% endcomment %} -->
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <!-- <script src="./main.js"></script>  -->
+    <script src="{% static 'js/main.js' %}"> </script>
+    
+</body>
+</html>

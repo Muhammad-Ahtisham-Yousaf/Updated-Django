@@ -1,0 +1,212 @@
+<style>
+    /* footer */
+        .footer {
+
+            width:100%;
+            position:relative;
+            top:15%;
+            bottom: 1%;
+            background: linear-gradient(to right,#00093c, #2d0b00);
+            color:white;
+            padding: 10px 10px 0px ;
+            /* border-top-left-radius: 110px; */
+            /* border-top-left-radius: 50px;
+            border-top-right-radius: 50px; */
+            font-size: 1rem;
+            line-height: 10px;
+            display: inline-flex;
+
+        }
+        .row {
+            width: 100%;
+        /* background-color: #0076de; */
+            display:inline-flex ;
+            flex-wrap: wrap;
+            padding:20px;
+            align-items: flex-start;
+            text-align: start;
+            justify-content: space-between;
+            border-block-end-style : solid;
+        }
+
+
+
+        .col {
+
+            flex-basis: 18%;
+            padding: 5px;
+            line-height: 25px;
+            /* background:#2d0b00; */
+            margin:10px;
+            font-size: 1rem;
+
+        }
+        /* .col > p {
+            line-height: 20px;
+            font-size: 1rem;
+            font-weight: 300;
+        } */
+        /* .col:hover {
+
+        border-bottom: 2px solid var(--whiteColor);
+        } */
+        /*
+        .logo {
+            width: 80px;
+            margin-bottom: 30px;
+            border-radius: 50%;
+        } */
+        .col > h4 {
+            width: 100%;
+        color:wheat;
+            border-bottom: 1px solid wheat;
+            border-width: 5px;
+            margin-bottom:1rem;
+            text-align: start;
+
+        }
+        /* .email {
+            width: fit-content;
+            border-bottom : 1px solid #ccc ;
+            margin:1px 0px;
+        } */
+        .row ul li {
+            border: none;
+            /* line-height: 20px; */
+            list-style: none;
+            margin-bottom: 2px;
+            /* background-color: #0076de; */
+
+        }
+        .row ul li a {
+            text-decoration: none;
+            color:white;
+        }
+        .row ul li a:hover {
+            color: dodgerblue;
+        }
+
+
+        /* form {
+            padding-bottom:  15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid white;
+            margin-bottom: 50px;
+
+
+        } */
+        /* form .far {
+            font-size: 19px;
+            margin-right: 5px;
+        }
+        form input {
+            width: 200px;
+            background: transparent;
+            border:0;
+            color:white;
+            outline:none;
+            font-size: 1rem;
+        }
+
+        form button {
+            background:transparent;
+            color:whitesmoke;
+            border: none;
+            outline: none;
+            border:0;
+            cursor: pointer;;
+        }
+        form button .fas { font-size: 1.2rem;
+            color: white; */
+
+
+        /* .social-icons .fa-brands {
+            width:40px;
+        height:40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+            font-size: 1.3rem;
+        color:black;
+        background: white;
+        margin-right: 15px;
+        cursor: pointer;
+        } */
+        @media screen and (max-width = 400px) {
+        .row {
+            width: 100%;
+            display: inline-block;
+        }
+        footer {
+            margin: 0;
+            padding:0;
+            display: inline;
+            text-align: center;
+            display: none;
+        }
+        }
+</style>
+<footer class = "footer">
+    <div class="row">
+        <div class="col">
+             <h4>Quick Links</h4>
+            <ul class="ul">
+                <li><a href="">&#8888;About Us</a></li>
+                <li><a href="">&#8888;FAQs</a></li>
+                <li><a href=""> &#8888;Contact Us</a></li>
+                <li><a href="">&#8888;Privacy and Policy</a></li>
+                <li><a href=""> &#8888;Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col">
+            <h4>For Job Seekers</h4>
+            <ul class="ul">
+                <li><a href="">&#8888;Home</a></li>
+                <li><a href="">&#8888;Browse Jobs</a></li>
+                <li><a href="">&#8888;Job Alerts</a></li>
+                <li><a href="">&#8888;Register</a></li>
+                <li><a href="">&#8888;Login</a></li>
+            </ul>
+        </div>
+        <div class="col">
+        <h4>For Employers</h4>
+            <ul class="ul">
+                <li><a href="#">&#8888;Browse Candidates</a></li>
+                <li><a href="#">&#8888;Employer Dashboard</a></li>
+                <li><a href="#">&#8888;Free Job Posting</a></li>
+                <li><a href="#">&#8888;Register</a></li>
+                <li><a href="#">&#8888;Login</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Browse Jobs</h4>
+                <ul class="ul">
+                    <li><a href="#">&#8888;All jobs</a></li>
+                    <li><a href="#">&#8888;Jobs by City</a></li>
+                    <li><a href="#">&#8888;Jobs by Location</a></li>
+                    <li><a href="#">&#8888;Jobs by Industry</a></li>
+                    <li><a href="#">&#8888;Jobs by Functional Area</a></li>
+                </ul>
+            </div>
+        <div class="col">
+              <h4>Follow Us</h4>
+                    <!-- <form >
+                            <i class="far fas fa-envelope"></i>
+                            <input type="email" placeholder="Enter Your Email ">
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>      -->
+          
+                <ul class="ul">
+                    <li><a href="#">&#8888; Facebook</a></li>
+                    <li><a href="#">&#8888;Whatsapp</a></li>
+                    <li><a href="#">&#8888;Twitter</a></li>
+                    <li><a href="#">&#8888;YouTube</a></li>
+                    <li><a href="#">&#8888;LinkdIn</a></li>
+                </ul>
+            </div>
+    </div>
+   
+ 
+</footer>
