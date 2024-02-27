@@ -11,7 +11,7 @@ function hideSidebar(){
 // swiper
 // <!-- Initialize Swiper -->
 var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
+        effect: "card",
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
@@ -19,6 +19,7 @@ var swiper = new Swiper(".mySwiper", {
         rotate: 50,
         stretch: 0,
         depth: 100,
+        speed:1000,
         modifier: 1,
         slideShadows: true,
      },
