@@ -1,4 +1,4 @@
- {% extends "base.html" %}
+{% extends "base.html" %}
 {% block 'title' %}  Dashboard {% endblock  %}
 {% block 'style' %}  
     <style>
@@ -78,7 +78,7 @@
             /* background-color: dodgerblue; */
             font-size: 1rem;
         }
-        colgroup {
+        #colgroup {
             color:white;
         }
         
@@ -86,20 +86,18 @@
    {% endblock  %}
 
    {% block 'content' %} 
-      <h1 class="heading">All Users</h1>
+      <h1 class="heading">Employers</h1>
     
-     <h1 class="heading1">Dashboard2</h1>
+     <h1 class="heading1">Dashboard</h1>
     <table >
-        <colgroup>
+        <colgroup id= 'colgroup'>
             <col style="background-color: rgb(67, 50, 223); color:white;">
             <col style="background-color: blueviolet;">
             <col style="background-color: rgb(90, 223, 167);">
             <col style="background-color: rgb(197, 238, 101);">
             <col style="background-color: rgb(3, 110, 110);">
             <col style="background-color: rgb(22, 150, 236);">
-            <col style="background-color: rgb(130, 193, 235);">
-            <col style="background-color: rgb(7, 216, 25);">
-            <col style="background-color: rgb(218, 141, 141);">
+            <col style="background-color: rgb(67, 50, 223); color:white;">
         </colgroup>
         <rowgroup>
     
@@ -110,34 +108,26 @@
             <th class="col">Full Name</th>
             <th class="col">Username</th>
             <th class="col">Email</th>
-            <!-- <th class="col">Password</th> -->
-            <th class="col">Gender</th>
-            <th class="col">Current Location</th>
-            <th class="col">Contact Number</th>
-            <th class="col">Specialization</th>
-            <th class="col">Action</th>
+            <th class="col">Company Name</th>            
+            <th class="col">Actions</th>
         </tr>
         </thead>
         <tbody>
-       
-          {% for custom_users in users %}
+
+          {% for employer in employers %}
 
                 <tr align="center">
-                   <th > {{ custom_users.id }} </th>
-                    <td>{{ custom_users.first_name }}</td>
-                    <td>{{ custom_users.username }}</td>
-                    <td>{{ custom_users.email }}</td>
-                    <!-- <td>{{ custom_users.password }}</td> -->
-                    <td>{{ custom_users.gender }}</td>
-                    <td>{{ custom_users.current_location }}</td>
-                    <td>{{ custom_users.contact_no }}</td>
-                    <td>{{ custom_users.specialization }}</td>
+                   <th > {{ user.id }} </th>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.last_name}}</td>
                    <td>
-                        <a href="{% url 'edit_custom_user' user.id %}"> <i class="fa-solid fa-pen"></i> </a> 
-                        <a href="{% url 'delete_user' user.id %}"> <i class="fa-solid fa-trash"></i> </a> 
+                        <a href="{% url 'edit_user' user.id %}"> <i class="fa-solid fa-pen"></i> </a> 
+                        <a href="{% url 'delete_user' user.id %}"> <i class="fa-solid fa-trash"></i> </a>  
                     </td> 
                 </tr> 
             {% endfor %} 
         </tbody>
     </table>
-{% endblock  %} 
+{% endblock  %}

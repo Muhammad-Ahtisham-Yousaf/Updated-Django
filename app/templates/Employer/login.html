@@ -132,7 +132,17 @@
 {% block 'content' %}
     <h1 class="login-logo">Employer Login</h1>
 <div class="container">
-        <form>
+  {% if messages %}
+            {% for message in messages %}
+          
+                <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-error{% endif %}">
+                    {{ message }}
+                </div> 
+                
+            {% endfor %}
+        {% endif %}
+        <form action = "{% url 'employer_login'%}" method = "POST">
+          {% csrf_token %}
                 <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" placeholder="Enter your username" required>

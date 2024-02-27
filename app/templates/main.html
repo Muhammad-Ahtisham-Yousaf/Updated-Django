@@ -1,10 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="./main.css"> {% endcomment %}
                             <!-- fonts -->
              <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
               <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
@@ -15,14 +16,19 @@
           <!-- <link rel="stylesheet" href="./main.css"> -->
           <!-- swiper -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+          
          
-          <link rel="stylesheet" href="{% static 'css/main.css' %} ">
-          <!--  <link rel="stylesheet" href="{%  static 'js/main.js'  %} "> -->
-    <title>Responsive Website</title>
-
-</head>
-<body>
+    {% block 'title' %}  Responsive Website {% endblock  %}
+    {% block 'style' %} 
     
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% endblock  %}
+
+    {% block 'content' %} 
+
+{% comment %} </head>
+<body>
+     {% endcomment %}
   <!-- navbar -->
     <!-- <nav class="navbar">
         <h1 class="logo"><a href="#">   Ahtisham   </a></h1>
@@ -579,14 +585,8 @@
 </footer> {% endcomment %} -->
 
 
-
-
-
-
-
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <!-- <script src="./main.js"></script>  -->
-    <script src="{% static 'js/main.js' %}"> </script>
+    {% comment %} <script src="./main.js"></script> {% endcomment %}
+     <script src="{% static 'js/main.js' %}"> </script> 
     
-</body>
-</html>
+{% endblock  %}

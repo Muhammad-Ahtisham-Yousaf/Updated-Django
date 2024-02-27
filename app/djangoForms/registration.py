@@ -8,23 +8,62 @@ from django import forms
 # from django import forms 
 # from..models import User
 
-from django import forms  
-from django.contrib.auth.models import User  
-from django.contrib.auth.forms import UserCreationForm  
 from django.core.exceptions import ValidationError  
 from django.forms.fields import EmailField  
 
   
 class BuiltinUserCreationForm(UserCreationForm):  
     first_name = forms.CharField(max_length=150, widget=forms.TextInput(attrs={ 'placeholder': 'DFirst Name', 'class': ''}))
-    # last_name = forms.CharField(max_length=150, widget=forms.TextInput(attrs={ 'placeholder': 'DLast Name', 'class': ''}))
+    last_name = forms.CharField(max_length=150, widget=forms.TextInput(attrs={ 'placeholder': ' Dspecialization', 'class': ''}))
     # username = forms.CharField(label='username', min_length=30, max_length=150)  
     email = forms.EmailField(widget=forms.EmailInput(attrs={ 'placeholder': 'DEmail', 'class': ''}))  
     # password1 = forms.CharField(label='password', widget=forms.PasswordInput)  
     # password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)  
 
   
-    # def username_clean(self):  
+   
+    class Meta:
+        model = User
+        fields = [ 'id','first_name','last_name','username','email','password1', 'password2']
+        # fields = ('__all__')
+        # exclude = ('id') 
+
+    def __init__(self, *args, **kwargs):
+        super(BuiltinUserCreationForm, self).__init__(*args, **kwargs)
+
+        self.fields['username'].widget.attrs['placeholder'] = 'DUser Name'
+        self.fields['username'].widget.attrs['class'] = ''
+        self.fields['password1'].widget.attrs['placeholder'] = 'DPassword'
+        self.fields['password1'].widget.attrs['class'] = ''  # Add class here
+        self.fields['password2'].widget.attrs['placeholder'] = 'DConfirm Password'
+        self.fields['password2'].widget.attrs['class'] = ''  # Add class here
+
+
+class BuiltinEmployerCreationForm(UserCreationForm):  
+    first_name = forms.CharField(max_length=150, widget=forms.TextInput(attrs={ 'placeholder': 'DFirst Name', 'class': ''}))
+    last_name = forms.CharField(max_length=150, widget=forms.TextInput(attrs={ 'placeholder': ' Dspecialization', 'class': ''}))
+    # username = forms.CharField(label='username', min_length=30, max_length=150)  
+    email = forms.EmailField(widget=forms.EmailInput(attrs={ 'placeholder': 'DEmail', 'class': ''}))  
+
+
+
+    class Meta:
+        model = User
+        fields = [ 'id','first_name','last_name','username','email','password1','password2' ]
+
+
+    def __init__(self, *args, **kwargs):
+        super(BuiltinEmployerCreationForm, self).__init__(*args, **kwargs)
+
+        self.fields['username'].widget.attrs['placeholder'] = 'DUser Name'
+        self.fields['username'].widget.attrs['class'] = ''
+        self.fields['password1'].widget.attrs['placeholder'] = 'DPassword'
+        self.fields['password1'].widget.attrs['class'] = ''  # Add class here
+        self.fields['password2'].widget.attrs['placeholder'] = 'DConfirm Password'
+        self.fields['password2'].widget.attrs['class'] = ''  # Add class here
+    
+
+     # def username_clean(self):  
     #     username = self.cleaned_data['username'].lower()  
     #     new = User.objects.filter(username = username)  
     #     if new.count():  
@@ -54,18 +93,3 @@ class BuiltinUserCreationForm(UserCreationForm):
     #         self.cleaned_data['password1']  
     #     )  
     #     return user  
-    class Meta:
-        model = User
-        fields = [ 'id','first_name','last_name','username','email','password1', 'password2']
-        # fields = ('__all__')
-        # exclude = ('id') 
-
-    def __init__(self, *args, **kwargs):
-        super(BuiltinUserCreationForm, self).__init__(*args, **kwargs)
-
-        self.fields['username'].widget.attrs['placeholder'] = 'DUser Name'
-        self.fields['username'].widget.attrs['class'] = ''
-        self.fields['password1'].widget.attrs['placeholder'] = 'DPassword'
-        self.fields['password1'].widget.attrs['class'] = ''  # Add class here
-        self.fields['password2'].widget.attrs['placeholder'] = 'DConfirm Password'
-        self.fields['password2'].widget.attrs['class'] = ''  # Add class here

@@ -1,3 +1,4 @@
+{% load static %}
 <style>
     .navbar{
     width: 100%;
@@ -43,22 +44,24 @@
 }
 .menu{
     width: 100%;
-    /* min-width: 150px; */
+    max-width: 70%;
+    min-width: 150px;
     margin:0;
     display: inline-flex;
     flex-direction: row;
     text-align: center;
+    
     cursor: pointer;
     /* background-color: wheat; */
   
 }
 .menu ul{
-  
+    width: 100%;
     cursor: pointer;
-    margin-left:20px;
+   
     display: flex;
     position: relative;
-   width:calc(80%/1 - 15px);
+    
    /* background-color: lightblue; */
 
 }
@@ -105,7 +108,9 @@
      
             visibility: visible;
             opacity: 1;
-            top: 1rem;
+            top: 0.8rem;
+            cursor: pointer;
+          
         }
 
         .menu .drop-hover li{
@@ -143,22 +148,7 @@
     top: 60%; /* Adjusted 
     transition: all .3s linear;
 } */
-.menu .drop-hover1 {
-    position: absolute;
-    left: 80%;
-    transform: translateX(-50%);
-    background-color: wheat;
-    height: auto;
-    min-width: 50px;
-  /* Initially hide the dropdown */
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-    gap: 2rem;
-    top: 60%; /* Adjusted */
-    transition: all .3s linear;
-    margin:20px;
-}
+
 /* .menu a::after{
     content:' ';
    position:absolute;
@@ -205,7 +195,7 @@
 .menu .profile-pic {
     height: 50px;
     width: 50px;
-    clip-path: circle(50%);
+   border-radius: 50%;
     margin-top: -17px;
 }
 /* @media screen and ( max-width:400px) {
@@ -224,10 +214,10 @@
          top:0;
         right: 0;
         height: 100vh;
-    
-        width: 300px;
+       width: 300px;
+       
         z-index: 999;
-        background: transparent;
+        background: steelblue;
         color: black;
         backdrop-filter: blur(10px);
         display: none;
@@ -253,7 +243,7 @@
 .menu ul li {
     color:black;
     margin:5px;
-    background-color:aliceblue;
+    background-color: steelblue;
     font-size: 1.5rem;
     line-height: -20px;
     gap: -20px;
@@ -267,27 +257,53 @@
 
 }
 .drop-hover {
-
-      position:absolute ;
+        position:absolute ;
           top:0;
           padding:0;
             transform: translateX(-50%);
             /* background-color: darkblue; */
             height: auto;
-            min-width: 200px;
+            min-width: 190px;
           display: flex;
           opacity: 1;
+          line-height: 1.2rem;
             flex-direction: column;
             align-items: center;
            left:37%;
-         
             transition: all .3s linear;
-             color:black;
-             background-color: transparent;
+             background-color: steelblue;
 }
-.drop-hover li,a {
-    background-color: transparent;
+.drop-hover li,.drop-hover a{
+    background-color: steelblue;
+    color:aliceblue;
 
+}
+ .menu .drop-hover li{
+         padding:0px;
+            height: 1rem;
+            line-height: 1rem;
+            width: 100%;
+            text-align: center;
+            transition: all .3s linear;
+            /*border: 1px solid red;*/
+       
+            font-size: 1rem;
+        } 
+        .drop-hover li a {
+            color: white;
+            } 
+              .menu .drop-hover li:hover{
+           background-color: transparent;
+        }
+          .menu .drop-hover li a:hover{
+            border-bottom: 1px solid black;
+            }
+
+        .menu .profile-pic {
+        height: 50px;
+        width: 50px;
+        clip-path: circle(50%);
+        margin-top: 7px;
 }
      svg{
         width: 40px;
@@ -299,7 +315,7 @@
         justify-content: flex-end;
         align-items:flex-end;
     }
-} 
+
 .menu li , .menu a {
     margin: 0;
     list-style: none;
@@ -375,8 +391,8 @@
         /* border-bottom: 1px solid black; 
         color: white;
         /* border: 1px solid violet; 
-        border-radius: 10px;
-    } */
+        border-radius: 10px;*/
+} 
    
 
 
@@ -402,6 +418,7 @@
                        
                          <li>     <a href="" > BLOGS</a> </li>
                            <li>   <a href="{% url 'home' %}" > CONTACT US</a> </li>
+                           {% if  not user.is_authenticated %} 
                              <li>   <a href="" > REGISTER</a>
                                 <ul class="drop-hover">
                                    <li> <a href="{% url 'employer_registration' %}"> EMPLOYER</a></li>
@@ -413,16 +430,19 @@
                                    <li> <a href="{% url 'employer_login' %}"> EMPLOYER</a></li>
                                    <li> <a href="{% url 'candidate_login' %}"> CANDIDATE</a></li>
                                 </ul>
-                            </li>
+                            </li>{% endif %}
+                            {% if user.is_authenticated %}
+                          
                             <li>
-                                <img class="profile-pic"  src="https://scontent.flhe13-1.fna.fbcdn.net/v/t39.30808-6/275995335_670074234261518_6031806315293603761_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeE0aI7IDb3Gx0vw4-Ux3tevYIM1AgiC2PdggzUCCILY9x53ASEDvrPP5tzfKAELzZaVRH4LhOUM6-RGvF6PWaF_&_nc_ohc=3GtOchmy-mkAX88Qoo4&_nc_ht=scontent.flhe13-1.fna&oh=00_AfCj1RyG_YzdzSCrNTpDprTHj8-pSFOulaPBEz53cQCO-Q&oe=65D52AA5" alt=" img">
+                                <img class="profile-pic" src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt=" Profile">
                                 <ul class="drop-hover">
                                     <li><a href=""> Profile</a></li>
-                                    <li><a href=""> Edit Profile</a></li>
+                                    <li><a href="{% url 'edit_user' %}"> Edit Profile</a></li>
                                     <li><a href=""> Change Password</a></li>
                                     <li><a href=""> Logout</a></li>
                                 </ul>
                             </li>
+                            {% endif %}
                  </ul> 
       </div>
                    <div class="showSidebar" onclick="showSidebar()"> 
