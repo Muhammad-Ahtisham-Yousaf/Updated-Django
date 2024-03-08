@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Listings</title>
+{% extends 'base.html'  %}
+{% load static %}
+ 
+    {% block 'title' %}  Full Job Profile {% endblock  %}
+    {% block 'style' %} 
     <style>
-         body {
-        font-family: sans-serif;
-        font-weight: lighter;
-        margin: 0;
-        padding: 0;
-    }
+     *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            width: auto;
+            height:100%;
+            background: slategrey;
+            /* box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+            10px 10px 70px rgba(0,0,0,0.25),
+            inset 5px 5px 10px rgba(0,0,0,0.5),
+            inset 5px 5px 20px rgba(255,255,255,0.2),
+            inset -5px -5px 15px rgba(0, 0, 0, 0.75);  */
+            transition: 0.3s;
+            overflow-x: hidden;
+
+        }
         .container {
    
         margin-top: 40px;
@@ -85,8 +98,11 @@
         }
 
     </style>
-</head>
-<body>
+     
+    {% endblock %}
+
+    {% block 'content' %}
+
 <div class="container">
     {% for jobs in jobs %} 
     <div class="job">
@@ -137,5 +153,4 @@
 
 <!-- Add more job listings as needed -->
 
-</body>
-</html>
+{% endblock  %}
