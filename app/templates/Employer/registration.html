@@ -1,8 +1,7 @@
 {% extends 'base.html'  %}
 {% load static %}
  
-
-    {% block 'title' %}  Employer Form {% endblock  %}
+    {% block 'title' %}  Employer Registeration Form {% endblock  %}
     {% block 'style' %} 
     <style>
      *{
@@ -16,13 +15,6 @@
             width: auto;
             height:100%;
             background: slategrey;
-            /* box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
-            10px 10px 70px rgba(0,0,0,0.25),
-            inset 5px 5px 10px rgba(0,0,0,0.5),
-            inset 5px 5px 20px rgba(255,255,255,0.2),
-            inset -5px -5px 15px rgba(0, 0, 0, 0.75);  */
-            transition: 0.3s;
-            overflow-x: hidden;
 
         }
 
@@ -31,30 +23,25 @@
             position: relative;
             min-width: 500px;
             max-width: 600px;
-            width: 80%;
+            width: 100%;
             border-radius: 16px;
             padding: 30px;
-            margin: 2% 30% ;
-            margin-left: auto;
-            background-color: wheat;
-        }
-          /* .container:hover {
-            box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
-            10px 10px 70px rgba(0,0,0,0.25),
-            inset 5px 5px 10px rgba(0,0,0,0.5),
-            inset 5px 5px 20px rgba(255,255,255,0.2),
-            inset -5px -5px 15px rgba(0, 0, 0, 0.75); 
+            margin: 2% auto ;
+            color:black;
+            background-color: aliceblue;
+            border:1px solid gray;
+            font-weight: lighter;
+            box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
 
-          } */
+        }
+         
         .container header {
             position:relative;
             font-size: 1.9rem;
             font-weight: 600;
             color:navy;
             text-align: center;
-          text-shadow: 1px 1px 10px white,
-    10px 0 60px  pink ,10px 0 100px dodgerblue,
-    0 0 100px rgb(255, 255, 255), 10px 0 100px darkblue; 
+            
         }
         .container .benefits {
             display: flex;
@@ -66,7 +53,7 @@
             color: lightslategray;
         }
         .container form {
-        background:aliceblue
+        background:aliceblue;
           min-height: 400px;
              position:relative; 
             color:white;
@@ -85,8 +72,8 @@
          width:calc(100% / 2 - 15px);
          margin:5px 5px;
          justify-content: space-between;
-        color:cornflowerblue;
-        font-size: 1.3rem;
+         color:black;
+         font-size: 1.1rem;
      
         }
         .input-fields input {
@@ -102,13 +89,12 @@
             padding: 0 15px;
             /* color: white; */
             background-color: transparent;
-            box-shadow: 0 0 70px 90px rgba(0,0,0,0.1);
+            box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
             transition: 0.3s;
            
         }
         .input-fields input:hover{
             border-bottom: 1px solid #4070f4;
-            background-color: white;
         }
         .container .form {
             color:aliceblue;
@@ -122,7 +108,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 45px;
+            height: 40px;
             min-width: 200px ;
             width:80%;
             background-color: #4070f4;
@@ -130,10 +116,11 @@
             border: none;
             font-size: 1.5rem;
             color: white;
-            margin: 15px 60px;
+            margin: 15px auto;
             border-radius: 5px;
             transition: all 0.3s linear;
-            cursor: pointer; text-shadow: 1px 1px 10px white,
+            cursor: pointer; 
+            text-shadow: 1px 1px 10px white,
             10px 0 60px  pink ,10px 0 100px dodgerblue,
             0 0 100px rgb(255, 255, 255), 10px 0 100px darkblue; 
         }
@@ -169,20 +156,20 @@
 
        }
 
- @media  screen and ( max-width: 850px)  {
+ @media  screen and ( max-width: 700px)  {
      .input-fields{
         display:inline-flex;
-         flex-direction:column;
-         width:calc(100% / 1 - 16px);
+        flex-direction:column;
+        width:calc(100% / 1 - 16px);
         margin:5px;
-         justify-content: space-between;
+        justify-content: space-between;
         color:cornflowerblue;
         font-size: 1.3rem;
      }
      .container{
         min-width: 250px;
         width: 100%;
-        margin:25px 20px;
+        margin:25px auto;
         font-size: 0.8rem;
      }
      .container form button {
@@ -228,19 +215,19 @@
  }
 
  @media  screen and ( max-width: 750px)  {
-     .input-fields{
-        display:inline-flex;
-         flex-direction:column;
-         width:calc(100% / 1 - 16px);
+    .input-fields{
+       display:inline-flex;
+        flex-direction:column;
+        width:calc(100% / 1 - 16px);
         margin:5px;
-         justify-content: space-between;
+        justify-content: space-between;
         color:cornflowerblue;
         font-size: 1.3rem;
      }
      .container{
         min-width: 300px;
         width: 100%;
-        margin:25px 10px;
+        margin:25px auto;
         font-size: 0.8rem;
      }
      .container form button {
@@ -278,103 +265,103 @@
         <p>Send Messages to Candidate</p>
          <p>Free Registration for Employer</p>
         </div>
-                    <form action=" {% url 'employer_registration' %}"  method = "POST">
-                        {% csrf_token %}
-                            <div class="form"> 
-            
-                                <div class="fields">
-                                            <div class="input-fields">
-                                                    <label for="">Your Full Name <em>*</em></label>
-                                                    {{form_data.first_name}}
-                                                    {% comment %} <input type="text" placeholder="Enter Your First Name" required> {% endcomment %}
-                                            </div>
-                                        </div> 
-                                <div class="fields">
-                                            <div class="input-fields">
-                                                    <label for="">Username<em>*</em></label>
-                                                    {{form_data.username}}
-                                                    {% comment %} <input type="text" placeholder="Enter Your First Name" required> {% endcomment %}
-                                            </div>
-                                        </div> 
-                                        {% comment %} <div class="fields">
-                                            <div class="input-fields">
-                                                    <label for="">Industry <em>*</em></label>
-                                                    <input type="text" placeholder="Enter Your First Name" required>
-                                            </div>
-                                        </div>  {% endcomment %}
-
-                                        <div class="fields">
-                                            <div class="input-fields">
-                                                <label for="">Company Name <em>*</em></label>
-                                                    {{form_data.last_name}}
-
-                                                {% comment %} <input type="text" placeholder="Enter Your Last Name" required> {% endcomment %}
-                                            </div>
-                                    </div> 
-                                     {% comment %} <div class="fields">
-                                            <div class="input-fields">
-                                                    <label for="">Contact No. <em>*</em></label>
-                                                    <input type="number" placeholder=" Your Contact No." required>
-                                                    <span class="helper-text">(Include your country code too)</span>
-                                            </div>
-                                    </div> 
-                                     {% endcomment %}
-                                        {% comment %} <div class="fields">
-                                                <div class="input-fields">
-                                                        <label for="">Location <em>*</em></label>
-                                                        <input type="text" placeholder=" Your Location" required>
-                                                </div>
-                                        </div> {% endcomment %}
-
-                                        <div class="fields">
-                                            <div class="input-fields">
-                                                <label for="">Email <em>*</em></label>
-                                                    {{form_data.email}}
-
-                                                {% comment %} <input type="email" placeholder=" Your birth Email " required> {% endcomment %}
-                                            </div>
-                                    </div>
-
-                                    <div class="fields">
-                                            <div class="input-fields">
-                                                <label for="">Password <em>*</em></label>
-                                                    {{form_data.password1}}
-
-                                                {% comment %} <input type="password" placeholder=" Password" required> {% endcomment %}
-                                            </div>
-                                    </div>
-                                    
-                                    <div class="fields">
-                                            <div class="input-fields">
-                                                <label for="">Confirm Password <em>*</em></label>
-                                                    {{form_data.password2}}
-
-                                                {% comment %} <input type="password" placeholder=" Password" required> {% endcomment %}
-                                            </div>
-                                    </div>
-                                    <div class="checks">
-                                        <input type="checkbox"  class="checkbox">
-                                        <label for="remember">Subscribe to News letters</label><br>
-                                        <input type="checkbox" checked class="checkbox">
-                                        <label for="remember">I accept Terms of Use </label>
-                                    </div>
-                                
-                                            <button type="submit" class="btn">Register</button> <br>
-                                    
-                                <!-- <div class="fields">
+            <form action=" {% url 'employer_registration' %}"  method = "POST">
+                {% csrf_token %}
+                    <div class="form"> 
+    
+                        <div class="fields">
                                     <div class="input-fields">
-                                        <label for="">Gender  <em> *</em></label>
-                                        <input type="text" placeholder=" Enter Your Gender" required>
+                                            <label for="">Your Full Name <em>*</em></label>
+                                            {{form_data.first_name}}
+                                            {% comment %} <input type="text" placeholder="Enter Your First Name" required> {% endcomment %}
                                     </div>
-                                </div>
-                    
-                            <div >
-                                <label for="" class="cv-file">Your CV <em>*</em></label>
-                                <div  class="file">
-                                    <input type="file" required>
-                                </div>
-                                </div> -->
+                                </div> 
+                        <div class="fields">
+                                    <div class="input-fields">
+                                            <label for="">Username<em>*</em></label>
+                                            {{form_data.username}}
+                                            {% comment %} <input type="text" placeholder="Enter Your First Name" required> {% endcomment %}
+                                    </div>
+                                </div> 
+                                {% comment %} <div class="fields">
+                                    <div class="input-fields">
+                                            <label for="">Industry <em>*</em></label>
+                                            <input type="text" placeholder="Enter Your First Name" required>
+                                    </div>
+                                </div>  {% endcomment %}
+
+                                <div class="fields">
+                                    <div class="input-fields">
+                                        <label for="">Company Name <em>*</em></label>
+                                            {% comment %} {{form_data.last_name}} {% endcomment %}
+
+                                        <input type="text" name="company" placeholder="Enter Your Company Name" required>
+                                    </div>
+                            </div> 
+                                {% comment %} <div class="fields">
+                                    <div class="input-fields">
+                                            <label for="">Contact No. <em>*</em></label>
+                                            <input type="number" placeholder=" Your Contact No." required>
+                                            <span class="helper-text">(Include your country code too)</span>
+                                    </div>
+                            </div> 
+                                {% endcomment %}
+                                {% comment %} <div class="fields">
+                                        <div class="input-fields">
+                                                <label for="">Location <em>*</em></label>
+                                                <input type="text" placeholder=" Your Location" required>
+                                        </div>
+                                </div> {% endcomment %}
+
+                                <div class="fields">
+                                    <div class="input-fields">
+                                        <label for="">Email <em>*</em></label>
+                                            {{form_data.email}}
+
+                                        {% comment %} <input type="email" placeholder=" Your birth Email " required> {% endcomment %}
+                                    </div>
+                            </div>
+
+                            <div class="fields">
+                                    <div class="input-fields">
+                                        <label for="">Password <em>*</em></label>
+                                            {{form_data.password1}}
+
+                                        {% comment %} <input type="password" placeholder=" Password" required> {% endcomment %}
+                                    </div>
+                            </div>
+                            
+                            <div class="fields">
+                                    <div class="input-fields">
+                                        <label for="">Confirm Password <em>*</em></label>
+                                            {{form_data.password2}}
+
+                                        {% comment %} <input type="password" placeholder=" Password" required> {% endcomment %}
+                                    </div>
+                            </div>
+                            <div class="checks">
+                                <input type="checkbox"  class="checkbox">
+                                <label for="remember">Subscribe to News letters</label><br>
+                                <input type="checkbox" checked class="checkbox">
+                                <label for="remember">I accept Terms of Use </label>
+                            </div>
+                        
+                                    <button type="submit" class="btn">Register</button> <br>
+                            
+                        <!-- <div class="fields">
+                            <div class="input-fields">
+                                <label for="">Gender  <em> *</em></label>
+                                <input type="text" placeholder=" Enter Your Gender" required>
+                            </div>
                         </div>
+            
+                    <div >
+                        <label for="" class="cv-file">Your CV <em>*</em></label>
+                        <div  class="file">
+                            <input type="file" required>
+                        </div>
+                        </div> -->
+                </div>
             </form>
    </div>
 {% endblock %}
