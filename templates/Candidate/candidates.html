@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'title' %}    Document{% endblock  %}
+{% block 'style' %} 
+     <style>
+     *{
+      margin:0px;
+      padding:0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+      scroll-behavior: smooth;
+            
+        }
+        body {
+            width: 100%;
+            height:100%;
+            overflow-x: hidden;
+            background-color: steelblue;
+            /* background-image: url(https://images.pexels.com/photos/2825749/pexels-photo-2825749.jpeg?auto=compress&cs=tinysrgb&w=3000); */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+  .container {
+    margin: 50px 0;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    position: relative;
+    justify-content:center ;
+    align-items: center;
+    flex-wrap: wrap;
+    
+} 
+
+
+.container .profile-card {
+  margin:20px;
+  width: calc(100%/3 - 15px);
+  width: 450px;
+  min-width: 300px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color:lightblue;
+  border: 1px solid white;
+  color: black;
+  line-height: 30px;
+  border-radius: 5px;
+  /* box-shadow: 3px 3px  1px rgb(195, 195, 196),
+  1px 1px 3px  pink ,2px 2px 1px dodgerblue,
+  0 0 5px rgb(255, 255, 255), 1px 1px 5px darkblue; */
+
+}
+
+.profile-card .profile-picture {
+  /* clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%); */
+    width: 150px;
+    height: 150px;
+    margin-top:10px;
+    display: flex;
+    border-radius: 50%;
+}
+.profile-card .download-btn {
+ margin-top: 10px;
+  padding:8px 20px;
+  height: 40px;
+  background-color: #4682B4;
+  border:1px solid white;
+  outline: none;
+  font-size: medium;
+  color:white;
+  /* box-shadow: 3px 3px  1px rgb(245, 162, 7),
+  1px 1px 3px  pink ,2px 2px 1px dodgerblue,
+  0 0 5px rgb(255, 255, 255), 1px 1px 5px darkblue; */
+  
+}
+@media screen and  (max-width: 468px) {
+  .container {
+    width: 100%;
+ 
+  }
+  .profile-card  {
+    margin:10px;
+    height: auto;
+   text-align: center;
+  }
+
+.container .profile-card p {
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+ 
+}
+
+}
+    </style>
+{% endblock  %}
+
+{% block 'content' %}
+  <!-- <div class="content">
+    <h1> Dashboard</h1>
+        <h1> Dashboard</h1></div> -->
+      <div class="container">
+             
+        <!-- <div class="content">
+        <button class="show-sidebar">Show Menu</button>
+        <div class="profile-card">
+            <h2>Profile</h2>
+            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+            <p>Name: Mary Liay</p>
+            <p>Email: [mary.liay@example.com](mailto:mary.liay@example.com)</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div class="card">
+            <h2>Statistics</h2>
+        </div>
+        </div> -->
+
+        <!-- <button class="show-sidebar">Show Menu</button> -->
+               
+
+            {% for users in users %}
+
+            <div class="profile-card">
+              {% if user_details in user_details %}
+              <img src="/media/{{user_details.profile_img}}" alt="Profile Picture" class="profile-picture"/>
+              {% endif %}
+                <p>{{ users.first_name }}</p>
+                <p>{{ users.email }}</p>
+                <p>{{ users.username }}</p>
+                <br>
+
+                {% comment %} {% for user_detail in user_details %} 
+                <p>{{ user_detail.specialization }}</p>
+                {% endfor %} {% endcomment %}
+                <!-- Add more fields as needed -->
+                <a href="{% url 'profile_page' user.username %}"> <button class="download-btn">  Veiw Profile </button></a>
+
+            </div>
+         {% endfor %}
+        
+    </div>
+            {% endblock  %}
+

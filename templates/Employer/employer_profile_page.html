@@ -1,0 +1,115 @@
+{% extends 'base.html'  %}
+{% load static %}
+ 
+    {% block 'title' %} Employer Profile Page {% endblock  %}
+    {% block 'style' %} 
+    <style>
+     *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            width: auto;
+            height:100%;
+            background: slategrey;
+            /* box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+            10px 10px 70px rgba(0,0,0,0.25),
+            inset 5px 5px 10px rgba(0,0,0,0.5),
+            inset 5px 5px 20px rgba(255,255,255,0.2),
+            inset -5px -5px 15px rgba(0, 0, 0, 0.75);  */
+            transition: 0.3s;
+            overflow-x: hidden;
+
+        }
+
+.profile-header {
+    background-color: #badaca;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-header img {
+    width: 150px;
+    height: 150px;
+    clip-path: circle(50%);
+}
+
+.section {
+    padding: 20px;
+ 
+    background-color: rgb(255, 143, 143);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin:20px 20px
+}
+.download-btn {
+ margin-top: 10px;
+  padding:10px;
+  height: 40px;
+  background-color: #4682B4;
+  border:none;
+  outline: none;
+  font-size: medium;
+  color:white;
+  box-shadow: 3px 4px  1px rgb(255, 171, 14);
+  text-shadow: 1px 1px 10px white,
+    10px 0 60px  pink ,10px 0 100px dodgerblue,
+    0 0 100px rgb(255, 255, 255), 10px 0 100px darkblue; 
+
+}
+
+
+
+.section h2 {
+    /* border-bottom: 2px solid #333; */
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.article {
+    border: 1px solid #333;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+    </style>
+
+    {% endblock %}
+
+    {% block 'content' %}
+    
+    {% if employer_details %} 
+  
+    <section class="section" id="about">
+           <h2>Company</h2>
+        <p>[{{employer_details.company}}]</p>
+    </section>
+
+    <section class="section" id="skills">
+        <h2>Industry</h2>
+        <p>[{{employer_details.industry}}]</p>
+
+        
+    </section>
+
+    <section class="section" id="education">
+        <h2>Phone Number</h2>
+        <p>[{{employer_details.contact_no}}]</p>
+
+    </section>
+
+    <section class="section" id="experience">
+        <h2>Location</h2>
+        <p>[{{user_details.location}}]</p>
+          
+    </section>
+   
+    {% endif %}
+   
+    {% endblock  %}
